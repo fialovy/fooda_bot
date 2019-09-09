@@ -100,7 +100,7 @@ def gather_fooda_context():
 def gather_food_trucks():
     """These are sorta hard-coded since there's no online source"""
     context = [
-        ("Roadie's Diner",),
+        ("Zaaki", "Roadie's Diner",),
         ("Gogi on the Block", "The Bacon Truck"),
         ("Chicken on the Road", "SA PA"),
         ("North East of the Border", "Moyzilla"),
