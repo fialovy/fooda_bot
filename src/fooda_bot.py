@@ -22,7 +22,7 @@ EMOJI_KEYWORDS = FLAVOR_TEXT["emoji_keywords"]
 GREETINGS = FLAVOR_TEXT["greetings"]
 
 
-class FoodaEvent(object):
+class FoodaEvent:
     """simple data object for extracting fooda event data from a page"""
 
     def __init__(self, event_html):
@@ -51,8 +51,8 @@ def query_fooda_events(base_url, email, password):
     """Queries Fooda website for events"""
     # Sounds tricky, but turns out their user-visible login page submits
     # to a create form, and THEN redirects you.
-    login_url = "{}/create".format(base_url)
-    referrer_url = "{}/login".format(base_url)
+    login_url = f"{base_url}/create"
+    referrer_url = f"{base_url}/login"
     session = requests.session()
 
     # Get authenticity token for login.
