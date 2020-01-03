@@ -78,9 +78,12 @@ def query_fooda_events(base_url, email, password):
     homepage_soup = BeautifulSoup(login_result.text)
     fooda_events = homepage_soup.find_all("div", {"class": "myfooda-event__meta"})
 
+    seen_vendors = set()
     for event in fooda_events:
         event = FoodaEvent(event_html=event)
-        yield event
+        if event.vendor_name not in seen_vendors:
+            seen_vendors.add(event.vendor_name)
+            yield event
 
 
 def gather_fooda_context():
